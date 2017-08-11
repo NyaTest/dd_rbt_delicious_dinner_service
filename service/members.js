@@ -3,7 +3,7 @@
  * Created by iNahoo on 2017/8/11.
  */
 const Router = require("./router");
-class ResMessage {
+class ResSuccessMessage {
     constructor(fields) {
         this.fields = fields;
     }
@@ -17,8 +17,10 @@ class ResMessage {
     }
 }
 const handle = async (ctx) => {
-    ctx.body = new ResMessage({
-        "text": "这里是返回",
+    const query = ctx.query.query;
+    console.log('query', query);
+    ctx.body = new ResSuccessMessage({
+        "text": `这里是返回: ${query}`,
     }).toJSON();
     ctx.status = 200;
 };
