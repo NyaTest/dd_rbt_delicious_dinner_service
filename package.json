@@ -1,0 +1,26 @@
+{
+  "name": "dd_rbt_delicious_dinner_service",
+  "version": "1.0.0",
+  "description": "钉钉机器人服务",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "tsc && node bin/entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyaTest/dd_rbt_delicious_dinner_service.git"
+  },
+  "author": "iNahoo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NyaTest/dd_rbt_delicious_dinner_service/issues"
+  },
+  "homepage": "https://github.com/NyaTest/dd_rbt_delicious_dinner_service#readme",
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-route": "^3.2.0",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
