@@ -34,9 +34,9 @@ const Menus = new class {
         const m = this.menu.concat();
         m.pop();
         let s: string = m.join('\n* ');
-        s = '##完整菜单\n\n* ' + s;
-        s = s.replace(/</g, '&lt');
-        s = s.replace(/>/g, '&gt');
+        s = '\n完整菜单\n\n* ' + s;
+        // s = s.replace(/</g, '&lt');
+        // s = s.replace(/>/g, '&gt');
         return s;
     }
 
