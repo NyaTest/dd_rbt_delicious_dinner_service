@@ -50,7 +50,7 @@ const handle = async (ctx) => {
     const query = ctx.query.query;
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
-        "text": `这里是返回: ${query}`,
+        "text": `取餐的人是: ${query}`,
     }).toJSON();
 
     ctx.status = 200;

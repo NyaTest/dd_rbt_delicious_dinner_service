@@ -39,15 +39,15 @@ class MembersGroup {
 const handle = async (ctx) => {
     const query = ctx.query.query;
     ctx.body = new ResSuccessMessage({
-        "text": `这里是返回: ${query}`,
+        "text": `取餐的人是: ${query}`,
     }).toJSON();
     ctx.status = 200;
 };
-const Test = () => {
-    const q = new MembersGroup('奈，封,iasi 高ijwev。，收到覅就。请问idj,f是，');
-    console.log(q.log());
-    console.log(q.getErrand());
-};
-Test();
 module.exports = new Router('/members/', handle);
+// const Test = () => {
+//     const q = new MembersGroup('奈，封,iasi 高ijwev。，收到覅就。请问idj,f是，');
+//     console.log(q.log());
+//     console.log(q.getErrand());
+// };
+// Test(); 
 //# sourceMappingURL=members.js.map
