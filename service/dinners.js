@@ -30,6 +30,15 @@ const Menus = new class {
         const n = Math.floor(Math.random() * L);
         return this.menu[n];
     }
+    getAllMenus() {
+        const m = this.menu.concat();
+        m.pop();
+        let s = m.join('\n* ');
+        s = '##完整菜单\n\n* ' + s;
+        s = s.replace(/</g, '&lt');
+        s = s.replace(/>/g, '&gt');
+        return s;
+    }
 };
 exports.dinner = new router_1.Router('/dinners/', async (ctx) => {
     ctx.body = new router_1.ResSuccessMessage({
@@ -39,7 +48,7 @@ exports.dinner = new router_1.Router('/dinners/', async (ctx) => {
 });
 exports.menu = new router_1.Router('/menus/', async (ctx) => {
     ctx.body = new router_1.ResSuccessMessage({
-        "text": `${Menus.getSomeOne()}`,
+        "text": `${Menus.getAllMenus()}`,
     }).toJSON();
     ctx.status = 200;
 });

@@ -27,5 +27,10 @@ const test = async () => {
     ret = await request.get(domain + req);
     console.log(ret);
 
+
+    req = `menus/`;
+    ret = await request.get(domain + req);
+    console.log(ret);
+
 };
 test().then();

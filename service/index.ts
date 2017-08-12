@@ -3,11 +3,12 @@
  */
 import Koa = require('koa');
 import menbersHandle = require('./members');
-import {dinner} from './dinners';
+import {dinner, menu} from './dinners';
 
 const loadService = (app: Koa) => {
     menbersHandle.load(app);
     dinner.load(app);
+    menu.load(app);
 };
 
 export =loadService;

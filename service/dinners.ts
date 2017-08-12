@@ -30,6 +30,16 @@ const Menus = new class {
         return this.menu[n];
     }
 
+    getAllMenus() {
+        const m = this.menu.concat();
+        m.pop();
+        let s: string = m.join('\n* ');
+        s = '##完整菜单\n\n* ' + s;
+        s = s.replace(/</g, '&lt');
+        s = s.replace(/>/g, '&gt');
+        return s;
+    }
+
 };
 
 export const dinner = new Router('/dinners/', async (ctx) => {
@@ -45,7 +55,7 @@ export const dinner = new Router('/dinners/', async (ctx) => {
 export const menu = new Router('/menus/', async (ctx) => {
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
-        "text": `${Menus.getSomeOne()}`,
+        "text": `${Menus.getAllMenus()}`,
     }).toJSON();
 
     ctx.status = 200;

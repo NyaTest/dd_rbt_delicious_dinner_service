@@ -20,6 +20,9 @@ const test = async () => {
     req = `dinners/`;
     ret = await request.get(domain + req);
     console.log(ret);
+    req = `menus/`;
+    ret = await request.get(domain + req);
+    console.log(ret);
 };
 test().then();
 //# sourceMappingURL=test.js.map
