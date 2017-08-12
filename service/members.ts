@@ -48,9 +48,10 @@ class MembersGroup {
 const handle = async (ctx) => {
 
     const query = ctx.query.query;
+    const members = new MembersGroup(query);
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
-        "text": `取餐的人是: ${query}`,
+        "text": `取餐的人是: ${members.getErrand()}`,
     }).toJSON();
 
     ctx.status = 200;
