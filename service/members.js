@@ -2,20 +2,7 @@
 /**
  * Created by iNahoo on 2017/8/11.
  */
-const Router = require("./router");
-class ResSuccessMessage {
-    constructor(fields) {
-        this.fields = fields;
-    }
-    toJSON() {
-        return JSON.stringify({
-            success: true,
-            errorCode: String(200),
-            errorMsg: "",
-            fields: this.fields,
-        });
-    }
-}
+const router_1 = require("./router");
 class MembersGroup {
     constructor(query) {
         this.count = 2;
@@ -32,17 +19,14 @@ class MembersGroup {
         }
         return tar;
     }
-    log() {
-        return JSON.stringify(this.members);
-    }
 }
 const handle = async (ctx) => {
     const query = ctx.query.query;
     const members = new MembersGroup(query);
-    ctx.body = new ResSuccessMessage({
+    ctx.body = new router_1.ResSuccessMessage({
         "text": `取餐的人是: ${members.getErrand()}`,
     }).toJSON();
     ctx.status = 200;
 };
-module.exports = new Router('/members/', handle);
+module.exports = new router_1.Router('/members/', handle);
 //# sourceMappingURL=members.js.map

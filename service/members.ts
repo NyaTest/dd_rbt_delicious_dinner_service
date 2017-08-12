@@ -1,24 +1,7 @@
 /**
  * Created by iNahoo on 2017/8/11.
  */
-import Router = require('./router');
-
-class ResSuccessMessage {
-    fields: Object;
-
-    constructor(fields: Object) {
-        this.fields = fields;
-    }
-
-    toJSON() {
-        return JSON.stringify({
-            success: true,
-            errorCode: String(200),
-            errorMsg: "",
-            fields: this.fields,
-        });
-    }
-}
+import {Router, ResSuccessMessage} from './router';
 
 class MembersGroup {
     private members: Array<string>;
@@ -38,10 +21,6 @@ class MembersGroup {
             tar = tar.concat(arr.splice(index, 1));
         }
         return tar;
-    }
-
-    log() {
-        return JSON.stringify(this.members);
     }
 }
 

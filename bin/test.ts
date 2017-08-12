@@ -12,11 +12,19 @@ const timeout = (time: Number) => new Promise(resolve => {
 const test = async () => {
 
     const domain = 'http://127.0.0.1:30000/';
-    const testText = '卫晨，风海,元谦,猎隼，奈帆，帼英';
 
     await timeout(2000);
 
-    let ret = await request.get(domain + `members/?query=${encodeURIComponent(testText)}`);
+    let ret: string;
+    let req: string;
+
+    const testText = '卫晨，风海,元谦,猎隼，奈帆，帼英';
+    req = `members/?query=${encodeURIComponent(testText)}`;
+    ret = await request.get(domain + req);
+    console.log(ret);
+
+    req = `dinners/`;
+    ret = await request.get(domain + req);
     console.log(ret);
 
 };
