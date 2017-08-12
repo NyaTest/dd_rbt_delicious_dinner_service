@@ -38,16 +38,11 @@ class MembersGroup {
 }
 const handle = async (ctx) => {
     const query = ctx.query.query;
+    const members = new MembersGroup(query);
     ctx.body = new ResSuccessMessage({
-        "text": `取餐的人是: ${query}`,
+        "text": `取餐的人是: ${members.getErrand()}`,
     }).toJSON();
     ctx.status = 200;
 };
 module.exports = new Router('/members/', handle);
-// const Test = () => {
-//     const q = new MembersGroup('奈，封,iasi 高ijwev。，收到覅就。请问idj,f是，');
-//     console.log(q.log());
-//     console.log(q.getErrand());
-// };
-// Test(); 
 //# sourceMappingURL=members.js.map

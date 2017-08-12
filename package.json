@@ -4,9 +4,9 @@
   "description": "钉钉机器人服务",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "tsc && node bin/test.js",
     "start": "node bin/entry.js",
-    "build": "tsc && node bin/entry.js"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
     "koa-route": "^3.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.20"
   }
 }

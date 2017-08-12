@@ -59,11 +59,3 @@ const handle = async (ctx) => {
 
 
 export= new Router('/members/', handle);
-
-
-// const Test = () => {
-//     const q = new MembersGroup('奈，封,iasi 高ijwev。，收到覅就。请问idj,f是，');
-//     console.log(q.log());
-//     console.log(q.getErrand());
-// };
-// Test();
