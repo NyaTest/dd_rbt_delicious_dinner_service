@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc && node bin/test.js",
     "start": "node bin/entry.js",
-    "build": "tsc"
+    "build": "tsc && git add . && git commit -am\"publish\" && git push"
   },
   "repository": {
     "type": "git",
