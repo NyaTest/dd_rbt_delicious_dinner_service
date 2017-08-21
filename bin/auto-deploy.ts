@@ -1,6 +1,6 @@
 import Koa = require('koa');
 import KoaRouter = require('koa-route');
-import {execSync} from 'child_process';
+import {exec} from 'child_process';
 import {resolve} from 'path';
 
 const root = resolve(__dirname, '../');
@@ -10,9 +10,9 @@ const PORT = 53647;
 
 const app = new Koa();
 
-app.use(KoaRouter.get('/onpublish/', async (ctx) => {
-    console.log(JSON.stringify(ctx.query, null, 4));
-    execSync(`cd ${root} && npm run server`);
+app.use(KoaRouter.post('/onpublish/', async (ctx) => {
+    console.log(ctx.url + '\n' + JSON.stringify(ctx.query, null, 4));
+    exec(`cd ${root} && npm run server`);
     ctx.body = 'success';
 }));
 
