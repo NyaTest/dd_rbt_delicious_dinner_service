@@ -57,9 +57,9 @@ export const discounts = new Router('/discounts/', async (ctx) => {
     const rcms = await eleService.getRecommend();
 
     const md = rcms.map(R => {
-        return `###${R.name}
+        return `####[${R.name}](https://www.ele.me/shop/${R.id})
 
-${R.promotion_info}
+> ${R.promotion_info}
 
 * 评分 ${R.rating}
 * 推荐价位 ${R.price}
