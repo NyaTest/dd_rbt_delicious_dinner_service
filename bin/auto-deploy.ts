@@ -10,7 +10,7 @@ const PORT = 53647;
 
 const app = new Koa();
 
-app.use(KoaRouter.get('onpublish/', async (ctx) => {
+app.use(KoaRouter.get('/onpublish/', async (ctx) => {
     console.log(JSON.stringify(ctx.query, null, 4));
     execSync(`cd ${root} && npm run server`);
     ctx.body = 'success';

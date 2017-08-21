@@ -8,7 +8,7 @@ const root = path_1.resolve(__dirname, '../');
 const PORT = 53647;
 //https://github.com/NyaTest/dd_rbt_delicious_dinner_service/settings/hooks/
 const app = new Koa();
-app.use(KoaRouter.get('onpublish/', async (ctx) => {
+app.use(KoaRouter.get('/onpublish/', async (ctx) => {
     console.log(JSON.stringify(ctx.query, null, 4));
     child_process_1.execSync(`cd ${root} && npm run server`);
     ctx.body = 'success';
