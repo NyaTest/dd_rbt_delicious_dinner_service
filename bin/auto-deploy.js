@@ -13,5 +13,6 @@ app.use(KoaRouter.get('onpublish/', async (ctx) => {
     child_process_1.execSync(`cd ${root} && npm run server`);
 }));
 app.listen(PORT);
+//1
 //sihgiuhwi3h29vjs 
 //# sourceMappingURL=auto-deploy.js.map
