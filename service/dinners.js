@@ -49,15 +49,15 @@ exports.dinner = new router_1.Router('/dinners/', async (ctx) => {
 exports.discounts = new router_1.Router('/discounts/', async (ctx) => {
     const rcms = await ele_1.service.getRecommend();
     const md = rcms.map(R => {
-        return `###${R.name}
+        return `####[${R.name}](https://www.ele.me/shop/${R.id})
 
-${R.promotion_info}
+> ${R.promotion_info}
 
 * 评分 ${R.rating}
 * 推荐价位 ${R.price}
 * 折扣率 ${(R.rate * 1e2).toFixed(2)}%
 * 折后价格 ${R.realPrice}`;
-    }).join('\n\n---\n\n');
+    }).join('\n\n\n\n');
     ctx.body = new router_1.ResSuccessMessage({
         "markdown": md,
     }).toJSON();
