@@ -12,7 +12,6 @@ const loadService = (app: Koa) => {
     menu.load(app);
     discounts.load(app);
 
-
     test.load(app);
 };
 

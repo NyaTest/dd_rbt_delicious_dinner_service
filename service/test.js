@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router_1 = require("./router");
 const handle = async (ctx) => {
     ctx.body = new router_1.ResSuccessMessage({
-        "text": `test1`,
+        "text": `test2`,
     }).toJSON();
     ctx.status = 200;
 };

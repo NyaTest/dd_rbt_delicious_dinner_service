@@ -6,7 +6,7 @@ import {Router, ResSuccessMessage} from './router';
 const handle = async (ctx) => {
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
-        "text": `test1`,
+        "text": `test2`,
     }).toJSON();
 
     ctx.status = 200;
