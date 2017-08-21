@@ -12,4 +12,5 @@ const loadService = (app: Koa) => {
     discounts.load(app);
 };
 
+
 export = loadService;
