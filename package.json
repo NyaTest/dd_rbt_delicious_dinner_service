@@ -6,7 +6,8 @@
   "scripts": {
     "test": "tsc && node bin/test.js",
     "start": "node bin/entry.js",
-    "build": "tsc && git add . && git commit -am\"publish\" && git push"
+    "build": "tsc && git add . && git commit -am\"publish\" && git push",
+    "server": "git pull && pm2 restart ./bin/entry.js"
   },
   "repository": {
     "type": "git",
