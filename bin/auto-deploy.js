@@ -11,8 +11,9 @@ const app = new Koa();
 app.use(KoaRouter.get('onpublish/', async (ctx) => {
     console.log(JSON.stringify(ctx.query, null, 4));
     child_process_1.execSync(`cd ${root} && npm run server`);
+    ctx.body = 'success';
 }));
 app.listen(PORT);
-//1
+console.log(`github webhook listening at port: ${PORT}`);
 //sihgiuhwi3h29vjs 
 //# sourceMappingURL=auto-deploy.js.map
