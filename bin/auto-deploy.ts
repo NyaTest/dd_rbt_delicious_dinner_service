@@ -6,7 +6,7 @@ import {resolve} from 'path';
 const root = resolve(__dirname, '../');
 
 const PORT = 53647;
-//https://github.com/NyaTest/dd_rbt_delicious_dinner_service/settings/hooks/
+//https://github.com/NyaTest/dd_rbt_delicious_dinner_service/settings/hooks/15642985#delivery-request
 
 const app = new Koa();
 

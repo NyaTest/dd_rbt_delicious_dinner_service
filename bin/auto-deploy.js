@@ -6,7 +6,7 @@ const child_process_1 = require("child_process");
 const path_1 = require("path");
 const root = path_1.resolve(__dirname, '../');
 const PORT = 53647;
-//https://github.com/NyaTest/dd_rbt_delicious_dinner_service/settings/hooks/
+//https://github.com/NyaTest/dd_rbt_delicious_dinner_service/settings/hooks/15642985#delivery-request
 const app = new Koa();
 app.use(KoaRouter.post('/onpublish/', async (ctx) => {
     console.log(ctx.url + '\n' + JSON.stringify(ctx.query, null, 4));
