@@ -57,7 +57,7 @@ export const discounts = new Router('/discounts/', async (ctx) => {
     const rcms = await eleService.getRecommend();
 
     const md = rcms.map(R => {
-        return `####[${R.name}](https://www.ele.me/shop/${R.id})
+        return `[${R.name}](https://www.ele.me/shop/${R.id})
 
 > ${R.promotion_info.replace(/\n/g, '\n> ')}
 
@@ -65,7 +65,7 @@ export const discounts = new Router('/discounts/', async (ctx) => {
 * 推荐价位 ${R.price}
 * 折扣率 ${(R.rate * 1e2).toFixed(2)}%
 * 折后价格 ${R.realPrice}`
-    }).join('\n\n\n\n');
+    }).join('\n\n.\n\n');
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
         "markdown": md,
