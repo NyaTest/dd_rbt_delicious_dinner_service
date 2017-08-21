@@ -59,7 +59,7 @@ export const discounts = new Router('/discounts/', async (ctx) => {
     const md = rcms.map(R => {
         return `####[${R.name}](https://www.ele.me/shop/${R.id})
 
-> ${R.promotion_info}
+> ${R.promotion_info.replace(/\n/g, '\n> ')}
 
 * 评分 ${R.rating}
 * 推荐价位 ${R.price}
