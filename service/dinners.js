@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Created by iNahoo on 2017/8/12.
  */
 const router_1 = require("./router");
+const ele_1 = require("../ele");
 const Menus = new class {
     constructor() {
         this.menu = [
@@ -20,6 +21,7 @@ const Menus = new class {
             "米粉",
             "土豆粉<?>",
             "炒菜<花家怡园>",
+            "麻辣香锅<江超麻辣香锅>",
             "粥",
             "红烧肉<田老师>",
             "今天尝个鲜，点点新菜吧！"
@@ -35,14 +37,29 @@ const Menus = new class {
         m.pop();
         let s = m.join('\n* ');
         s = '\n完整菜单\n\n* ' + s;
-        // s = s.replace(/</g, '&lt');
-        // s = s.replace(/>/g, '&gt');
         return s;
     }
 };
 exports.dinner = new router_1.Router('/dinners/', async (ctx) => {
     ctx.body = new router_1.ResSuccessMessage({
         "text": `${Menus.getSomeOne()}`,
+    }).toJSON();
+    ctx.status = 200;
+});
+exports.discounts = new router_1.Router('/discounts/', async (ctx) => {
+    const rcms = await ele_1.service.getRecommend();
+    const md = rcms.map(R => {
+        return `###${R.name}
+
+${R.promotion_info}
+
+* 评分 ${R.rating}
+* 推荐价位 ${R.price}
+* 折扣率 ${(R.rate * 1e2).toFixed(2)}%
+* 折后价格 ${R.realPrice}`;
+    }).join('\n\n---\n\n');
+    ctx.body = new router_1.ResSuccessMessage({
+        "markdown": md,
     }).toJSON();
     ctx.status = 200;
 });

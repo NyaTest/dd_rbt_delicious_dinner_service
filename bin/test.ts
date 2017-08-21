@@ -4,6 +4,7 @@
 
 import request = require('request-promise');
 import './entry';
+import '../ele';
 
 const timeout = (time: Number) => new Promise(resolve => {
     setTimeout(resolve, time);
@@ -18,19 +19,23 @@ const test = async () => {
     let ret: string;
     let req: string;
 
-    const testText = '卫晨，风海,元谦,猎隼，奈帆，帼英';
-    req = `members/?query=${encodeURIComponent(testText)}`;
+
+    req = `discounts/`;
     ret = await request.get(domain + req);
     console.log(ret);
 
-    req = `dinners/`;
-    ret = await request.get(domain + req);
-    console.log(ret);
-
-
-    req = `menus/`;
-    ret = await request.get(domain + req);
-    console.log(ret);
+    // const testText = '卫晨，风海,元谦,猎隼，奈帆，帼英';
+    // req = `members/?query=${encodeURIComponent(testText)}`;
+    // ret = await request.get(domain + req);
+    // console.log(ret);
+    //
+    // req = `dinners/`;
+    // ret = await request.get(domain + req);
+    // console.log(ret);
+    //
+    // req = `menus/`;
+    // ret = await request.get(domain + req);
+    // console.log(ret);
 
 };
 test().then();
