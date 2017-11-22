@@ -37,4 +37,4 @@ const handle = async (ctx) => {
 };
 
 
-export= new Router('/members/', handle);
+export = new Router('/members/', handle);
