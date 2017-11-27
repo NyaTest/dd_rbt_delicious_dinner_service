@@ -30,6 +30,7 @@ const Menus = new class {
         return this.menu[n];
     }
 
+
     getAllMenus() {
         const m = this.menu.concat();
         m.pop();
