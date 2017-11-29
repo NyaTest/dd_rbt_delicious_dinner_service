@@ -28,14 +28,14 @@ class _Menu_ {
     getSomeOne() {
         const L = menu.length;
         const n = Math.floor(Math.random() * L);
-        return menu[n];
+        return `\n### ` + menu[n];
     }
 
     getAllMenus() {
         const m = menu.concat();
         m.pop();
         let s = m.join('\n* ');
-        s = '\n完整菜单\n\n* ' + s;
+        s = '\n# 完整菜单\n\n* ' + s;
         return s;
     }
 }
