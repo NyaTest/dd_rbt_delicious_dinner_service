@@ -28,7 +28,7 @@ class _Menu_ {
     getSomeOne() {
         const L = menu.length;
         const n = Math.floor(Math.random() * L);
-        return this.menu[n];
+        return menu[n];
     }
 
     getAllMenus() {
