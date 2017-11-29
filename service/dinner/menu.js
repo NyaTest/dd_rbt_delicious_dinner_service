@@ -35,7 +35,7 @@ class _Menu_ {
         const m = menu.concat();
         m.pop();
         let s = m.join('\n* ');
-        s = '\n# 完整菜单\n\n* ' + s;
+        s = '\n### 完整菜单\n\n* ' + s;
         return s;
     }
 }
