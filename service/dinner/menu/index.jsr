@@ -6,8 +6,8 @@
  */
 "use strict";
 
-const Menus = require('./menu');
+const Menus = require('../menu');
 
 module.exports = async ctx => {
-    ctx.body = Menus.getSomeOne();
+    ctx.body = Menus.getAllMenus();
 };

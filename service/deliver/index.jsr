@@ -21,9 +21,14 @@ module.exports = async ctx => {
     const input = decodeURIComponent(ctx.query.input);
 
     if (/点菜/.test(input)) {
-        // await send(ctx, 'dinner', input);
+        await send(ctx, 'dinner');
+
+    } else if (/菜单/.test(input)) {
+        await send(ctx, 'dinner/menu');
+
     } else if (/^(谁取餐|取餐|点餐的人有)/.test(input)) {
         await send(ctx, 'pickghost', input.replace(/^(谁取餐|取餐|点餐的人有)/, ''));
+
     }
 
 };
