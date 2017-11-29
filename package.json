@@ -4,11 +4,9 @@
   "description": "钉钉机器人服务",
   "main": "index.js",
   "scripts": {
-    "test": "tsc && node bin/test.js",
-    "start": "node bin/entry.js",
-    "build": "tsc && git add . && git commit -am\"publish\" && git push",
-    "send": "tsc && node tst.js",
-    "server": "git pull && pm2 restart ./bin/entry.js"
+    "start": "node bin/ddrbt.js",
+    "build": "git add . && git commit -am\"publish\" && git push",
+    "restart": "git pull && pm2 restart ./bin/ddrbt.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +19,9 @@
   },
   "homepage": "https://github.com/NyaTest/dd_rbt_delicious_dinner_service#readme",
   "dependencies": {
-    "canvas": "^1.6.6",
+    "@types/koa": "^2.0.41",
+    "@types/koa-route": "^3.2.3",
+    "glob": "^7.1.2",
     "koa": "^2.3.0",
     "koa-route": "^3.2.0",
     "request": "^2.81.0",

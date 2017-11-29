@@ -1,12 +1,13 @@
 /**
  * Created by iNahoo on 2017/8/12.
  */
-import {Router, ResSuccessMessage} from './router';
-import {service as eleService} from '../ele';
+"use strict";
 
-const Menus = new class {
+const {Router, ResSuccessMessage} = require('./router');
+const {service: eleService} = require('../ele');
 
-    private menu = [
+class _Menu_ {
+    menu = [
         "<楼上小卖部>各种小吃",
         "<庆丰包子>包子",
         "护国寺",
@@ -25,23 +26,23 @@ const Menus = new class {
     ];
 
     getSomeOne() {
-        const L: number = this.menu.length;
-        const n: number = Math.floor(Math.random() * L);
+        const L = this.menu.length;
+        const n = Math.floor(Math.random() * L);
         return this.menu[n];
     }
-
 
     getAllMenus() {
         const m = this.menu.concat();
         m.pop();
-        let s: string = m.join('\n* ');
+        let s = m.join('\n* ');
         s = '\n完整菜单\n\n* ' + s;
         return s;
     }
+}
 
-};
+const Menus = new _Menu_();
 
-export const dinner = new Router('/dinners/', async (ctx) => {
+module.exports.dinner = new Router('/dinners/', async (ctx) => {
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
         "text": `${Menus.getSomeOne()}`,
@@ -50,8 +51,7 @@ export const dinner = new Router('/dinners/', async (ctx) => {
     ctx.status = 200;
 });
 
-
-export const discounts = new Router('/discounts/', async (ctx) => {
+const discounts = new Router('/discounts/', async (ctx) => {
 
     const rcms = await eleService.getRecommend();
 
@@ -73,7 +73,7 @@ export const discounts = new Router('/discounts/', async (ctx) => {
     ctx.status = 200;
 });
 
-export const menu = new Router('/menus/', async (ctx) => {
+const menu = new Router('/menus/', async (ctx) => {
 
     ctx.body = new ResSuccessMessage({ //返回参数和对应的值
         "text": `${Menus.getAllMenus()}`,

@@ -1,0 +1,13 @@
+/**
+ * @fileOverview
+ * 分发路由到各个分支上
+ * @author iNahoo
+ * @since 2017/11/29.
+ */
+"use strict";
+
+const Responds = global.controller.responds;
+
+module.exports = async ctx => {
+
+};

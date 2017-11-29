@@ -1,20 +1,30 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const KoaRouter = require("koa-route");
-class Router {
+/**
+ * Created by iNahoo on 2017/8/11.
+ */
+const Koa = require('koa');
+const KoaRouter = require('koa-route');
+
+export class Router {
+    route;
+    handle;
+
     constructor(route, handle) {
         this.route = route;
         this.handle = handle;
     }
+
     load(app) {
         app.use(KoaRouter.get(this.route, this.handle));
     }
 }
-exports.Router = Router;
-class ResSuccessMessage {
+
+module.exports = class ResSuccessMessage {
+    fields = {};
+
     constructor(fields) {
         this.fields = fields;
     }
+
     toJSON() {
         return JSON.stringify({
             success: true,
@@ -24,5 +34,3 @@ class ResSuccessMessage {
         });
     }
 }
-exports.ResSuccessMessage = ResSuccessMessage;
-//# sourceMappingURL=router.js.map

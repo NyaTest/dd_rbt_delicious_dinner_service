@@ -1,13 +1,18 @@
-"use strict";
 /**
  * Created by iNahoo on 2017/8/11.
  */
-const router_1 = require("./router");
+"use strict";
+
+const {Router, ResSuccessMessage} = require('./router');
+
 class MembersGroup {
+    private members = [];
+    private count = 2;
+
     constructor(query) {
-        this.count = 2;
         this.members = query.split(/[,，\s]+/).filter(s => s.length);
     }
+
     getErrand() {
         const arr = this.members.concat();
         let tar = [];
@@ -20,13 +25,18 @@ class MembersGroup {
         return tar;
     }
 }
+
 const handle = async (ctx) => {
+
     const query = ctx.query.query;
     const members = new MembersGroup(query);
-    ctx.body = new router_1.ResSuccessMessage({
+
+    ctx.body = new ResSuccessMessage({ //返回参数和对应的值
         "text": `取餐的人是: ${members.getErrand()}`,
     }).toJSON();
+
     ctx.status = 200;
 };
-module.exports = new router_1.Router('/members/', handle);
-//# sourceMappingURL=members.js.map
+
+
+module.exports = new Router('/members/', handle);

@@ -1,13 +1,25 @@
+/**
+ * Created by iNahoo on 2017/8/11.
+ */
 "use strict";
-const menbersHandle = require("./members");
-const dinners_1 = require("./dinners");
-const test_1 = require("./test");
-const loadService = (app) => {
-    menbersHandle.load(app);
-    dinners_1.dinner.load(app);
-    dinners_1.menu.load(app);
-    dinners_1.discounts.load(app);
-    test_1.test.load(app);
+
+const glob = require('glob');
+const path = require('path');
+const KoaRouter = require('koa-route');
+
+require('../controller');
+
+global.abp = path.resolve(__dirname, '../') + '/';
+
+const loadService = function (app) {
+    const list = glob.sync('./service/*/**/*.jsr');
+    list.map(p => {
+        const handle = require('../' + p);
+        p = p.replace(/^\.\/service/, '').replace(/\.jsr$/, '');
+        console.log('create service at:', p);
+
+        app.use(KoaRouter.get(p, handle));
+    });
 };
+
 module.exports = loadService;
-//# sourceMappingURL=index.js.map
