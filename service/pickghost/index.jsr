@@ -8,7 +8,7 @@
 
 const compile = obj =>
     `
-点餐的人有 : ${obj.hs.join(' ')}
+### 点餐的人有 : ${obj.hs.join(' ')}
 
 取餐者
 # ${obj.gs.join(' ')}
