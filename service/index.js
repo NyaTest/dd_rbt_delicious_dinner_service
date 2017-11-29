@@ -12,10 +12,10 @@ require('../controller');
 global.abp = path.resolve(__dirname, '../') + '/';
 
 const loadService = function (app) {
-    const list = glob.sync('./service/*/**/*.jsr');
+    const list = glob.sync('./service/*/**/index.jsr');
     list.map(p => {
         const handle = require('../' + p);
-        p = p.replace(/^\.\/service/, '').replace(/\.jsr$/, '');
+        p = p.replace(/^\.\/service/, '').replace(/index\.jsr$/, '');
         console.log('create service at:', p);
 
         app.use(KoaRouter.get(p, handle));

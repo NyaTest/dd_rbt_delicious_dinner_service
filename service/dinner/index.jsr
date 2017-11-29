@@ -7,5 +7,6 @@
 "use strict";
 
 module.exports = async ctx => {
-    ctx.body = 'this is dinner';
+    const input = ctx.query.input;
+    ctx.body = 'in dinner , recive input : ' + input;
 };

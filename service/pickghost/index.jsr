@@ -1,0 +1,40 @@
+/**
+ * @fileOverview
+ * todo 这文件干嘛使的
+ * @author iNahoo
+ * @since 2017/11/29.
+ */
+"use strict";
+
+const compile = obj =>
+    `
+点餐的人有 : ${obj.hs.join(' ')},
+
+取餐者
+
+${obj.gs.map(name => `# ${name}`).join('\n\n')},
+`;
+
+const getErrand = (hs, count) => {
+    const arr = hs.concat();
+    let tar = [];
+    let i = 0;
+    while (i < count) {
+        i++;
+        const index = Math.floor(Math.random() * arr.length);
+        tar = tar.concat(arr.splice(index, 1));
+    }
+    return tar;
+};
+
+module.exports = async ctx => {
+    const input = decodeURIComponent(ctx.query.input);
+
+    const hs = input.split(/[,，\s]+/).filter(s => s.length);
+    const max = Math.ceil(hs.length / 3);
+    const gs = getErrand(hs, max);
+
+    ctx.body = compile({
+        hs, gs,
+    })
+};

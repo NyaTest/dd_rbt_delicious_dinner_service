@@ -7,10 +7,12 @@
  */
 "use strict";
 const {server_port} = require('./config.json');
+global.server_port = server_port;
 
 const app = require("../app");
 const loadService = require("../service");
 loadService(app);
 app.listen(server_port);
+
 
 console.log(`server now listening at port: ${server_port}`);
