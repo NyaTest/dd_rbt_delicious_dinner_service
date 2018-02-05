@@ -27,4 +27,3 @@ app.use(KoaRouter.post('/onpublish/', async (ctx) => {
 app.listen(webhook_port);
 console.log(`github webhook listening at port: ${webhook_port}`);
 
-//sihgiuhwi3h29vjs
