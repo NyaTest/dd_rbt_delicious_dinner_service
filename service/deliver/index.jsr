@@ -29,6 +29,9 @@ module.exports = async ctx => {
     } else if (/^(谁取餐|取餐|点餐的人有)/.test(input)) {
         await send(ctx, 'pickghost', input.replace(/^(谁取餐|取餐|点餐的人有)/, ''));
 
+    } else if (/^(hehe)/.test(input)) {
+        await send(ctx, 'hehe');
+
     } else {
         await send(ctx, 'default');
 
