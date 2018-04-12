@@ -37,6 +37,7 @@ module.exports = async ctx => {
         const matches = checkNumsReg.exec(hs.shift());
         const _max = +matches[1];
         if (!isNaN(_max)) max = _max;
+        if (max > 99) max = 99;
     }
 
     const gs = getErrand(hs, max);
