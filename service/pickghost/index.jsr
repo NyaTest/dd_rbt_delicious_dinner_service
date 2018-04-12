@@ -28,9 +28,17 @@ const getErrand = (hs, count) => {
 
 module.exports = async ctx => {
     const input = decodeURIComponent(ctx.query.input);
+    const checkNumsReg = /^\[(\d+)]/;
 
     const hs = input.split(/[,，\s]+/).filter(s => s.length);
-    const max = Math.ceil(hs.length / 3);
+    let max = Math.ceil(hs.length / 3);
+
+    if (checkNumsReg.test(hs[0])) {
+        const matches = checkNumsReg.exec(hs.shift());
+        const _max = +matches[1];
+        if (!isNaN(_max)) max = _max;
+    }
+
     const gs = getErrand(hs, max);
 
     ctx.body = compile({
