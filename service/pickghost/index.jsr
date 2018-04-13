@@ -32,7 +32,7 @@ module.exports = async ctx => {
     const input = decodeURIComponent(ctx.query.input);
     const checkNumsReg = /^\[(\d+)]/;
 
-    const hs = input.split(/[,，\s]+/).filter(s => s.length).filter(s => ignoreList.every(reg => !reg.test(s)));
+    const hs = input.split(/[,，\s]+/).filter(s => s.length);
     let max = Math.ceil(hs.length / 3);
 
     if (checkNumsReg.test(hs[0])) {
@@ -42,7 +42,7 @@ module.exports = async ctx => {
         if (max > 99) max = 99;
     }
 
-    const gs = getErrand(hs, max);
+    const gs = getErrand(hs.filter(s => ignoreList.every(reg => !reg.test(s))), max);
 
     if (gs.length === 0) gs.push('喝西北风,无人取餐');
 
