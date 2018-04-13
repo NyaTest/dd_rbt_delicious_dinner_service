@@ -26,7 +26,7 @@ const getErrand = (hs, count) => {
     return tar;
 };
 
-const ignoreList = [/奈帆/,/少者/];
+const ignoreList = [];
 
 module.exports = async ctx => {
     const input = decodeURIComponent(ctx.query.input);
