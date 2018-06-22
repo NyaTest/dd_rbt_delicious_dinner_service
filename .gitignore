@@ -2,3 +2,8 @@
 node_modules/*
 
 log/.log
+
+mission/.missions
+mission/.log
+
+mission/PAIBAN/.current
