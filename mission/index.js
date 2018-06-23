@@ -89,7 +89,7 @@ class Manager {
           syncMStoLocal(this.MS);
         }
       }
-    }, 1 * 1e3)
+    }, 100 * 1e3)
   }
   
 }
