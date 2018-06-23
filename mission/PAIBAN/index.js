@@ -34,7 +34,7 @@ fs.writeFileSync(LOCAL_FILE_NAME, current, 'utf-8');
 
 request({
   method: "POST",
-  url: 'https://oapi.dingtalk.com/robot/send?access_token=cfe8ff163c03bbf71623be04956a9d716e59d88776273ccaa341410c828ae7bd',
+  url: 'https://oapi.dingtalk.com/robot/send?access_token=b7fcdf420df78ecaa5803fefaf6331a264c4166cfd3d67f4ce01bf9a49a4d9ab',
   headers: {
     'Content-Type': 'application/json; charset=UTF-8'
   },

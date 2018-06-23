@@ -82,7 +82,10 @@ class Manager {
           } catch (e) {
             log(e);
           }
-          M.next = new Date(M.next.getTime() + M.interval);
+  
+          const lastTS = M.next.getTime();
+          const next = Math.ceil((now - lastTS) / M.interval) * M.interval;
+          M.next = new Date(next);
           syncMStoLocal(this.MS);
         }
       }
